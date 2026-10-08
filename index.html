@@ -8,297 +8,255 @@
 <meta name="description" content="Portfolio of Ece Topcu, Mechanical Engineering student at Yaşar University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #2b1b18;
-    --surface: #3a2621;
-    --line: #573a33;
-    --text: #fcebec;
-    --muted: #d4b6b0;
-    --accent: #f4b8c4;
-    --accent-ink: #3b2620;
-    --mint: #efc9a6;
+    --bg: #2a1c19; --surface: #36241f; --line: #553a33;
+    --text: #fcebec; --muted: #d3b5af; --accent: #f4b8c4; --accent-ink: #3b2620; --warm: #efc9a6;
   }
   :root[data-theme="light"] {
-    --bg: #fcf0f1;
-    --surface: #fff9f7;
-    --line: #ecd5d3;
-    --text: #3b2620;
-    --muted: #7a5b53;
-    --accent: #8a4b38;
-    --accent-ink: #ffffff;
-    --mint: #a8456a;
+    --bg: #fdf3f1; --surface: #f8e4e2; --line: #e8cdca;
+    --text: #3b2620; --muted: #7a5b53; --accent: #8a4b38; --accent-ink: #ffffff; --warm: #b5506f;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, Arial, sans-serif; line-height: 1.65; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", system-ui, Arial, sans-serif; line-height: 1.7; }
   a { color: inherit; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-
-  /* Navigation */
-  header.nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
-  .logo { font-family: Fraunces, Georgia, serif; font-weight: 800; letter-spacing: .08em; text-decoration: none; }
-  .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; overflow-x: auto; }
-  .nav ul a { text-decoration: none; color: var(--muted); font-size: .95rem; white-space: nowrap; }
-  .nav ul a:hover, .nav ul a:focus-visible { color: var(--text); }
-  #theme { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 10px; width: 40px; height: 40px; cursor: pointer; font-size: 1.1rem; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .serif { font-family: "Playfair Display", Georgia, serif; }
 
-  /* Hero */
-  .hero { padding: 96px 0 88px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
-  .hello { color: var(--accent); font-weight: 600; margin: 0 0 8px; }
-  h1 { font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.05; margin: 0 0 14px; letter-spacing: -.02em; }
-  .role { font-family: Fraunces, Georgia, serif; color: var(--mint); font-size: 1.35rem; font-weight: 600; margin: 0 0 20px; }
-  .lead { color: var(--muted); font-size: 1.08rem; max-width: 56ch; margin: 0 0 18px; }
-  .langs { margin: 0 0 30px; }
-  .langs b { color: var(--accent); font-weight: 600; }
-  .btns { display: flex; flex-wrap: wrap; gap: 14px; }
-  .btn { display: inline-block; padding: 13px 26px; border-radius: 12px; font-weight: 600; text-decoration: none; border: 2px solid var(--accent); }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); }
-  .btn.ghost { color: var(--text); }
-  .btn:hover { transform: translateY(-2px); }
-  .photo { justify-self: center; width: min(320px, 70vw); aspect-ratio: 1; border-radius: 50%; border: 3px dashed var(--accent); padding: 12px; }
-  .photo .inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: var(--surface); display: grid; place-items: center; position: relative; }
-  .photo .initials { font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: 4rem; color: var(--accent); }
-  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .layout { display: grid; grid-template-columns: 340px 1fr; min-height: 100vh; }
 
-  /* Sections */
-  section { padding: 72px 0; border-top: 1px solid var(--line); }
-  h2 { font-family: Fraunces, Georgia, serif; font-size: 2rem; margin: 0 0 28px; letter-spacing: -.01em; }
-  h3 { font-family: Fraunces, Georgia, serif; font-size: 1.15rem; margin: 0 0 6px; }
-  .item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; }
-  .item + .item { margin-top: 16px; }
-  .when { color: var(--mint); font-size: .92rem; font-weight: 500; margin: 0 0 8px; }
-  .item p { margin: 0; color: var(--muted); }
-  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .chips span { background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; font-size: .92rem; }
+  /* Sidebar */
+  aside { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--surface); border-right: 1px solid var(--line); padding: 40px 34px; display: flex; flex-direction: column; gap: 22px; }
+  .arch { position: relative; width: 100%; max-width: 250px; margin: 0 auto; aspect-ratio: 3 / 4; }
+  .arch::before { content: ""; position: absolute; inset: 12px -12px -12px 12px; border: 2px solid var(--accent); border-radius: 999px 999px 26px 26px; }
+  .arch .frame { position: absolute; inset: 0; border-radius: 999px 999px 26px 26px; overflow: hidden; background: var(--bg); display: grid; place-items: center; }
+  .arch .initials { font-family: "Playfair Display", Georgia, serif; font-size: 3.6rem; font-weight: 700; color: var(--accent); }
+  .arch img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+  .who { text-align: center; margin-top: 8px; }
+  .who h1 { font-family: "Playfair Display", Georgia, serif; font-size: 2rem; line-height: 1.15; margin: 0 0 4px; }
+  .who p { margin: 0; color: var(--warm); font-weight: 500; }
+  nav ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+  nav li { counter-increment: n; }
+  nav a { display: flex; gap: 12px; padding: 7px 0; text-decoration: none; color: var(--muted); border-bottom: 1px dashed var(--line); }
+  nav a::before { content: "0" counter(n); color: var(--accent); font-weight: 700; font-size: .85rem; padding-top: 2px; }
+  nav a:hover { color: var(--text); }
+  .side-actions { margin-top: auto; display: grid; gap: 10px; }
+  .btn { display: block; text-align: center; padding: 11px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid var(--accent); }
+  .btn.fill { background: var(--accent); color: var(--accent-ink); }
+  #theme { background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 999px; padding: 8px; cursor: pointer; font: inherit; }
 
-  /* Portfolio */
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
-  .media { aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--line), var(--surface)); display: grid; place-items: center; position: relative; color: var(--muted); font-size: .9rem; }
+  /* Main */
+  main { padding: 72px 64px 40px; max-width: 920px; }
+  section { padding: 0 0 72px; scroll-margin-top: 32px; }
+  .eyebrow { color: var(--warm); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; margin: 0 0 10px; }
+  h2 { font-family: "Playfair Display", Georgia, serif; font-size: 2.3rem; line-height: 1.2; margin: 0 0 26px; }
+  h2 em { color: var(--accent); }
+  h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.3rem; margin: 0 0 4px; }
+  .lead { font-size: 1.12rem; color: var(--muted); max-width: 60ch; }
+  .intro h2 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); max-width: 16ch; }
+
+  .facts { display: flex; flex-wrap: wrap; margin-top: 34px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .facts div { flex: 1 1 120px; padding: 18px 20px; border-right: 1px solid var(--line); }
+  .facts div:last-child { border-right: 0; }
+  .facts b { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 2rem; color: var(--accent); line-height: 1.1; }
+  .facts span { color: var(--muted); font-size: .88rem; }
+
+  /* Timeline */
+  .timeline { position: relative; margin-left: 8px; padding-left: 30px; border-left: 2px solid var(--line); }
+  .stop { position: relative; padding-bottom: 30px; }
+  .stop::before { content: ""; position: absolute; left: -39px; top: 7px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); }
+  .when { color: var(--warm); font-weight: 700; font-size: .9rem; margin: 0 0 2px; }
+  .stop p { margin: 0; color: var(--muted); }
+
+  /* Skills */
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 30px; }
+  .cols h3 { padding-bottom: 8px; border-bottom: 2px solid var(--accent); margin-bottom: 14px; font-size: 1.1rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 4px 12px; font-size: .92rem; }
+
+  /* Projects */
+  .row { display: grid; grid-template-columns: 60px 1fr 270px; gap: 26px; padding: 30px 0; border-top: 1px solid var(--line); align-items: start; }
+  .row:last-child { border-bottom: 1px solid var(--line); }
+  .num { font-family: "Playfair Display", Georgia, serif; font-size: 2.4rem; font-weight: 700; color: var(--line); line-height: 1; }
+  .row.feature .num { color: var(--accent); }
+  .row p { margin: 0 0 8px; color: var(--muted); }
+  .row ul { margin: 0 0 8px; padding-left: 20px; color: var(--muted); }
+  .badge { display: inline-block; background: var(--accent); color: var(--accent-ink); font-size: .76rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; margin-bottom: 8px; }
+  .tag { font-size: .85rem; color: var(--warm); font-weight: 700; }
+  .media { position: relative; aspect-ratio: 4 / 3; border-radius: 16px 16px 16px 4px; overflow: hidden; background: var(--surface); border: 1px solid var(--line); display: grid; place-items: center; font-size: 2.6rem; }
   .media img, .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
-  .project .body { padding: 20px 22px 24px; }
-  .project p { margin: 0; color: var(--muted); }
-  .tag { display: inline-block; margin-top: 14px; font-size: .85rem; color: var(--mint); }
 
-  /* Contact */
-  .contact a { color: var(--accent); font-weight: 600; }
-  footer { padding: 32px 0 48px; color: var(--muted); font-size: .92rem; border-top: 1px solid var(--line); }
+  .hobbies { font-size: 1.15rem; color: var(--muted); }
+  .hobbies span { white-space: nowrap; }
+  .mail { font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 6px; word-break: break-all; }
+  footer { padding: 26px 0 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 
-  /* Extra decoration */
-  body { background-image: radial-gradient(900px 520px at 88% -4%, color-mix(in srgb, var(--mint) 20%, transparent), transparent 62%), radial-gradient(760px 520px at -6% 34%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 62%); background-attachment: fixed; }
-  h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--mint)); margin-top: 10px; }
-  .photo { box-shadow: 0 0 70px color-mix(in srgb, var(--accent) 32%, transparent); }
-  .stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 20px; min-width: 112px; }
-  .stat b { display: block; font-family: Fraunces, Georgia, serif; font-size: 1.7rem; color: var(--accent); line-height: 1.2; }
-  .stat span { font-size: .88rem; color: var(--muted); }
-  #education .item, #experience .item { border-left: 5px solid var(--accent); }
-  .chips span { transition: border-color .2s, transform .2s; }
-  .chips span:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .project { border-top: 4px solid var(--accent); transition: transform .2s, box-shadow .2s; }
-  .project:hover { transform: translateY(-4px); box-shadow: 0 14px 30px color-mix(in srgb, var(--accent) 24%, transparent); }
-  .media .ico { font-size: 2.8rem; }
-  .project.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.1fr; }
-  .project.featured .media { aspect-ratio: auto; min-height: 240px; }
-  .project ul { margin: 0; padding-left: 20px; color: var(--muted); }
-  .project li + li { margin-top: 4px; }
-  .badge { display: inline-block; background: var(--accent); color: var(--accent-ink); font-size: .78rem; font-weight: 600; padding: 3px 12px; border-radius: 999px; margin-bottom: 10px; }
-
-  @media (max-width: 820px) {
-    .hero .wrap { grid-template-columns: 1fr; }
-    .photo { order: -1; width: 220px; }
-    .hero { padding-top: 56px; }
-    .project.featured { display: flex; }
+  @media (max-width: 960px) {
+    .layout { display: block; }
+    aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 36px 24px; }
+    .side-actions { margin-top: 0; }
+    main { padding: 48px 24px 24px; }
+    .row { grid-template-columns: 1fr; gap: 14px; }
+    .num { font-size: 1.8rem; }
+    .facts div { border-right: 0; border-bottom: 1px solid var(--line); }
   }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .btn:hover, .project:hover, .chips span:hover { transform: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
+<div class="layout">
 
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top">ET</a>
+  <aside>
+    <div class="arch">
+      <div class="frame">
+        <span class="initials">ET</span>
+        <img src="images/profile.jpg" alt="Portrait of Ece Topcu" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="who">
+      <h1>Ece Topcu</h1>
+      <p>Mechanical Engineering Student</p>
+    </div>
     <nav aria-label="Main">
-      <ul>
+      <ol>
         <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#journey">Education and Experience</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Interests</a></li>
         <li><a href="#contact">Contact</a></li>
-      </ul>
+      </ol>
     </nav>
-    <button id="theme" type="button" aria-label="Switch light or dark theme">☾</button>
-  </div>
-</header>
+    <div class="side-actions">
+      <a class="btn fill" href="cv.pdf" download>Download CV</a>
+      <button id="theme" type="button" aria-label="Switch light or dark theme">Dark mode</button>
+    </div>
+  </aside>
 
-<main id="top">
-  <section class="hero" id="about" style="border-top:0">
-    <div class="wrap">
-      <div>
-        <p class="hello">Hello, I'm</p>
-        <h1>Ece Topcu</h1>
-        <p class="role">Mechanical Engineering Student</p>
-        <p class="lead">Mechanical Engineering student at Yaşar University with a strong foundation in mechanics, thermodynamics, materials science, and control systems. I design in SolidWorks and Autodesk Fusion 360, and use Matlab and Python for calculations and data analysis.</p>
-        <p class="langs"><b>Languages:</b> English, Turkish, German</p>
-        <div class="btns">
-          <a class="btn primary" href="#portfolio">View my work</a>
-          <a class="btn ghost" href="cv.pdf" download>Download CV</a>
+  <main>
+    <section id="about" class="intro">
+      <p class="eyebrow">Yaşar University · İzmir</p>
+      <p class="lead" style="font-size:1.25rem;color:var(--text)">Mechanical Engineering student at Yaşar University with a strong foundation in mechanics, thermodynamics, materials science, and control systems. Experienced in 3D design and analysis with SolidWorks and Autodesk Fusion 360, and in calculations and data analysis with Matlab and Python.</p>
+      <p class="lead"><strong>Languages:</strong> English, Turkish, German</p>
+      <div class="facts">
+        <div><b>2027</b><span>Expected graduation</span></div>
+        <div><b>5</b><span>Projects</span></div>
+        <div><b>3</b><span>Design tools</span></div>
+        <div><b>3</b><span>Languages</span></div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <p class="eyebrow">Journey</p>
+      <h2>Education and <em>Experience</em></h2>
+      <div class="timeline">
+        <div class="stop">
+          <p class="when">July 6, 2026 - August 17, 2026</p>
+          <h3>Intern, Process and Production Department</h3>
+          <p>PTM Proses Tank</p>
         </div>
-        <div class="stats">
-          <div class="stat"><b>2027</b><span>Expected graduation</span></div>
-          <div class="stat"><b>5</b><span>Projects</span></div>
-          <div class="stat"><b>3</b><span>Design tools</span></div>
-          <div class="stat"><b>3</b><span>Languages</span></div>
+        <div class="stop">
+          <p class="when">September 2023 - July 2027 (expected)</p>
+          <h3>B.Sc. in Mechanical Engineering</h3>
+          <p>Yaşar University, İzmir</p>
         </div>
       </div>
-      <div class="photo">
-        <div class="inner">
-          <span class="initials">ET</span>
-          <img src="images/profile.jpg" alt="Portrait of Ece Topcu" onerror="this.remove()">
+    </section>
+
+    <section id="skills">
+      <p class="eyebrow">Toolbox</p>
+      <h2>Skills</h2>
+      <div class="cols">
+        <div><h3>Design</h3><div class="chips"><span>SolidWorks</span><span>Autodesk Fusion 360</span><span>AutoCAD</span></div></div>
+        <div><h3>Analysis and code</h3><div class="chips"><span>Matlab</span><span>Python</span><span>OpenCV</span><span>Proteus</span></div></div>
+        <div><h3>Office</h3><div class="chips"><span>Excel</span><span>Word</span><span>PowerPoint</span></div></div>
+        <div><h3>Strengths</h3><div class="chips"><span>Analytical problem solving</span><span>Collaboration and clear communication</span><span>Presenting and pitching ideas</span></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <p class="eyebrow">Selected work</p>
+      <h2>Projects</h2>
+
+      <article class="row feature">
+        <div class="num">01</div>
+        <div>
+          <span class="badge">Capstone · YU-COOP · In progress</span>
+          <h3>Vibration Test Bench for Electronic Boards</h3>
+          <p><em>Eccentric-mechanism sinusoidal vibration test setup</em></p>
+          <ul>
+            <li>Ongoing work on a single-axis test bench that exposes ENKO control boards to controlled vibration in the 10-60 Hz range.</li>
+            <li>Generates sinusoidal vibration with an eccentric mechanism.</li>
+            <li>Measures and records the vibration applied to the board.</li>
+          </ul>
+          <span class="tag">Mechanism design · Vibration testing</span>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="media">🛠<img src="images/capstone.jpg" alt="Vibration test bench for electronic boards" onerror="this.remove()"></div>
+      </article>
 
-  <section id="education">
-    <div class="wrap">
-      <h2>🎓 Education</h2>
-      <div class="item">
-        <h3>B.Sc. in Mechanical Engineering</h3>
-        <p class="when">Yaşar University, İzmir · September 2023 - July 2027 (expected)</p>
-        <p>Core coursework in mechanics, thermodynamics, materials science, and control systems, with a focus on turning theory into working designs.</p>
-      </div>
-    </div>
-  </section>
+      <article class="row">
+        <div class="num">02</div>
+        <div>
+          <h3>Sinusoidal Steady State Behavior of R, L, C Circuits</h3>
+          <p>Applied phasor analysis to find phase differences and voltage values of an experimental circuit, carrying out the analysis in Proteus.</p>
+          <span class="tag">Proteus</span>
+        </div>
+        <div class="media">⚡<img src="images/rlc.jpg" alt="RLC circuit analysis in Proteus" onerror="this.remove()"></div>
+      </article>
 
-  <section id="experience">
-    <div class="wrap">
-      <h2>💼 Experience</h2>
-      <div class="item">
-        <h3>Intern, Process and Production Department</h3>
-        <p class="when">PTM Proses Tank · July 6, 2026 - August 17, 2026</p>
-      </div>
-    </div>
-  </section>
+      <article class="row">
+        <div class="num">03</div>
+        <div>
+          <h3>Current Balance Experiment (Biot-Savart Law)</h3>
+          <p>Demonstrated experimentally that the static magnetic field of coils carrying DC current produces a force opposing gravity, based on the Biot-Savart law.</p>
+          <span class="tag">Physics lab</span>
+        </div>
+        <div class="media">🧲<img src="images/current-balance.jpg" alt="Current balance experiment setup" onerror="this.remove()"></div>
+      </article>
 
-  <section id="skills">
-    <div class="wrap">
-      <h2>🛠 Skills</h2>
-      <div class="skills">
-        <div class="item"><h3>Design</h3>
-          <div class="chips"><span>SolidWorks</span><span>Autodesk Fusion 360</span><span>AutoCAD</span></div></div>
-        <div class="item"><h3>Analysis and programming</h3>
-          <div class="chips"><span>Matlab</span><span>Python</span><span>OpenCV</span><span>Proteus</span></div></div>
-        <div class="item"><h3>Office</h3>
-          <div class="chips"><span>Excel</span><span>Word</span><span>PowerPoint</span></div></div>
-      </div>
-    </div>
-  </section>
+      <article class="row">
+        <div class="num">04</div>
+        <div>
+          <h3>Lorentz Force Experiment</h3>
+          <p>Measured the Lorentz force on a copper rod carrying current, suspended horizontally from a pair of vertical cables in a magnetic field, and determined the direction of the force.</p>
+          <span class="tag">Physics lab</span>
+        </div>
+        <div class="media">🌀<video controls preload="none" src="videos/lorentz.mp4" onerror="this.remove()"></video></div>
+      </article>
 
-  <section id="interests">
-    <div class="wrap">
-      <h2>🎹 Interests</h2>
-      <div class="item">
-        <div class="chips" style="margin-top:0"><span>Piano</span><span>Art</span><span>Reading</span><span>History</span><span>Dance</span><span>Swimming</span><span>Traveling</span><span>Cultures</span><span>Gardening</span></div>
-      </div>
-    </div>
-  </section>
+      <article class="row">
+        <div class="num">05</div>
+        <div>
+          <h3>Python Picture Analysis</h3>
+          <p>Analyzed pictures at the pixel level using Python and OpenCV.</p>
+          <span class="tag">Python · OpenCV</span>
+        </div>
+        <div class="media">🐍<img src="images/opencv.jpg" alt="Pixel-level picture analysis" onerror="this.remove()"></div>
+      </article>
+    </section>
 
-  <section id="portfolio">
-    <div class="wrap">
-      <h2>📁 Portfolio</h2>
-      <div class="grid">
+    <section id="interests">
+      <p class="eyebrow">Off the clock</p>
+      <h2>Interests</h2>
+      <p class="hobbies"><span>🎹 Piano</span> · <span>🎨 Art</span> · <span>📚 Reading</span> · <span>🏛 History</span> · <span>💃 Dance</span> · <span>🏊 Swimming</span> · <span>✈️ Traveling</span> · <span>🌍 Cultures</span> · <span>🌱 Gardening</span></p>
+    </section>
 
-        <article class="project featured">
-          <div class="media"><span class="ico" aria-hidden="true">🛠</span>
-            <img src="images/capstone.jpg" alt="Vibration test bench for electronic boards" onerror="this.remove()">
-          </div>
-          <div class="body">
-            <span class="badge">Capstone project · YU-COOP · In progress</span>
-            <h3>Vibration Test Bench for Electronic Boards</h3>
-            <p style="margin-bottom:10px"><em>Eccentric-mechanism sinusoidal vibration test setup</em></p>
-            <ul>
-              <li>Ongoing work on a single-axis test bench that exposes ENKO control boards to controlled vibration in the 10-60 Hz range.</li>
-              <li>Generates sinusoidal vibration with an eccentric mechanism.</li>
-              <li>Measures and records the vibration applied to the board.</li>
-            </ul>
-            <span class="tag">Mechanism design · Vibration testing</span>
-          </div>
-        </article>
+    <section id="contact">
+      <p class="eyebrow">Say hello</p>
+      <h2>Contact</h2>
+      <a class="mail" href="mailto:ecee.topcu01@gmail.com">ecee.topcu01@gmail.com</a>
+      <p class="lead">Based in İzmir, Turkey.</p>
+    </section>
 
-        <article class="project">
-          <div class="media"><span class="ico" aria-hidden="true">⚡</span>
-            <img src="images/rlc.jpg" alt="RLC circuit simulation in Proteus" onerror="this.remove()">
-          </div>
-          <div class="body">
-            <h3>Sinusoidal Steady State of R, L, C Circuits</h3>
-            <p>Applied phasor analysis to find phase differences and voltage values of an experimental circuit, carrying out the analysis in Proteus.</p>
-            <span class="tag">Proteus</span>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media"><span class="ico" aria-hidden="true">🧲</span>
-            <img src="images/current-balance.jpg" alt="Current balance experiment setup" onerror="this.remove()">
-          </div>
-          <div class="body">
-            <h3>Current Balance Experiment (Biot-Savart Law)</h3>
-            <p>Demonstrated experimentally that the static magnetic field of coils carrying DC current produces a force opposing gravity, based on the Biot-Savart law.</p>
-            <span class="tag">Physics lab</span>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media"><span class="ico" aria-hidden="true">🌀</span>
-            <video controls preload="none" src="videos/lorentz.mp4" onerror="this.remove()"></video>
-          </div>
-          <div class="body">
-            <h3>Lorentz Force Experiment</h3>
-            <p>Measured the Lorentz force on a copper rod carrying current, suspended horizontally from a pair of vertical cables in a magnetic field, and determined the direction of the force.</p>
-            <span class="tag">Physics lab</span>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="media"><span class="ico" aria-hidden="true">🐍</span>
-            <img src="images/opencv.jpg" alt="Pixel-level picture analysis result" onerror="this.remove()">
-          </div>
-          <div class="body">
-            <h3>Python Picture Analysis</h3>
-            <p>Analyzed pictures at the pixel level using Python and OpenCV.</p>
-            <span class="tag">Python · OpenCV</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <h2>✉️ Contact</h2>
-      <p>Email me at <a href="mailto:ecee.topcu01@gmail.com">ecee.topcu01@gmail.com</a>. I am based in İzmir, Turkey.</p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">© 2026 Ece Topcu · Built with HTML and GitHub Pages</div>
-</footer>
+    <footer>© 2026 Ece Topcu · Built with HTML and GitHub Pages</footer>
+  </main>
+</div>
 
 <script>
   var root = document.documentElement, btn = document.getElementById('theme');
-  function setTheme(t) { root.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? '☀' : '☾'; }
+  function setTheme(t) { root.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode'; }
   try { var saved = localStorage.getItem('theme'); if (saved) setTheme(saved); } catch (e) {}
   btn.addEventListener('click', function () {
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
